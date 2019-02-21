@@ -3,13 +3,13 @@ global k tf beta delta alpha
 global A B w theta
 
 k = 100;
-tf = 8000;
+tf = 365;
 
 alpha = 0.015;
 beta = 0.002;
-delta = 0.007;
+delta = 0.001;
 
-A = 30; %minimum temp
+A = 23; %minimum temp
 B = 5; %max temp - minimum
 w = (2*pi)/365; %makes periodic
 theta = -(pi/2+44*w); %shift
