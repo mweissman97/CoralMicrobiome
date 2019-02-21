@@ -1,6 +1,6 @@
 %make for loop for each variable
 
-tempvec = [5:3:40];
+tempvec = [1:0.5:15];
 ng = length(tempvec);
 val1 = 0;
 val2 = 0;
@@ -24,10 +24,10 @@ for j = 1:ng
     global k tf A B w theta
     
     k = 1;
-    tf = 400000;
+    tf = 10000;
     
-    A = T-2.5;
-    B = 5; %max temp - minimum
+    A = 23;
+    B = T; %max temp - minimum
     w = (2*pi)/365; %makes periodic
     theta = -(pi/2+44*w); %shift
     
@@ -41,7 +41,7 @@ for j = 1:ng
     
     u0 = [B10; B20; B30; B40; B50; B60; B70];
 
-    [t, u] = ode45('onepopdeqns',[1 tf],u0);
+    [t, u] = ode45('multipopdeqns',[1 tf],u0);
     
     B1 = u(:,1);
     B2 = u(:,2);

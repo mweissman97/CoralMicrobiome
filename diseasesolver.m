@@ -1,13 +1,14 @@
-global k tf beta delta alpha
+global k tf beta delta alpha gamma
 
 global A B w theta
 
 k = 100;
-tf = 5;
+tf = 500;
 
-alpha = 0.015;
+alpha = 0.15;
 beta = 0.002;
-delta = 0.001;
+delta = 0.00000001;
+gamma = 500;
 
 A = 23; %minimum temp
 B = 5; %max temp - minimum
