@@ -1,5 +1,5 @@
 function du = diseasedeqns(t,u)
-
+fprintf("Run diseasedeqns at time: %2.0f\n", t);
 B1 = u(1);
 B2 = u(2);
 B3 = u(3);

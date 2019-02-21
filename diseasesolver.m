@@ -3,7 +3,7 @@ global k tf beta delta alpha
 global A B w theta
 
 k = 100;
-tf = 365;
+tf = 119;
 
 alpha = 0.015;
 beta = 0.002;
