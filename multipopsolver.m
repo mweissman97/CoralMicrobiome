@@ -5,7 +5,7 @@ global A B w theta
 k = 100;
 tf = 365;
 
-A = 23; %minimum temp
+A = 35-2.5; %minimum temp
 B = 5; %max temp - minimum
 w = (2*pi)/365; %makes periodic
 theta = -(pi/2+44*w); %shift

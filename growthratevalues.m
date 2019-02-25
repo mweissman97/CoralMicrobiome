@@ -10,7 +10,7 @@ sig1 = 8;
 mu1 = 18;
 
 %alphaproteobacteria
-Rmax2 = 1.2;
+Rmax2 = 1;
 sig2 = 5;
 mu2 = 30;
 
@@ -20,21 +20,21 @@ sig3 = 12.5;
 mu3 = 27.5;
 
 %cyanobacteria
-Rmax4 = 0.29;
+Rmax4 = 5;
 sig4 = 15;
 mu4 = 33;
 
 %gammaproteobacteria
-Rmax5 = 1;
+Rmax5 = 3;
 sig5 = 10;
 mu5 = 26;
 
 %spirochaeta
-Rmax6 = 0.23;
+Rmax6 = 1;
 sig6 = 2.5;
 mu6 = 29;
 
 %Thaumarchaeota
-Rmax7 = 0.08;
+Rmax7 = 0.1;
 sig7 = 10;
 mu7 = 17;

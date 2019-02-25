@@ -1,6 +1,6 @@
 %make for loop for each variable
 
-tempvec = [1:0.5:15];
+tempvec = [1:10];
 ng = length(tempvec);
 val1 = 0;
 val2 = 0;
@@ -24,7 +24,7 @@ for j = 1:ng
     global k tf A B w theta
     
     k = 1;
-    tf = 10000;
+    tf = 1000;
     
     A = 23;
     B = T; %max temp - minimum
