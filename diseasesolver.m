@@ -1,12 +1,9 @@
-clc; clear;
-growthratevalues;
-
 global k tf beta delta alpha
 
 global A B w theta
 
 k = 100;
-tf = 50;
+tf = 5;
 
 alpha = 0.015;
 beta = 0.002;
@@ -24,8 +21,8 @@ B40 = 0.5;%cyanobacteria
 B50 = 0.5;%gammaproteobacteria
 B60 = 0.5;%Spirochaetia
 B70 = 0.5;%Thaumarchaeota
-S0 = 100;%susceptible
-I0 = 0;%infected
+S0 = 10000;%susceptible
+I0 = 0.001;%infected
 
 u0 = [B10; B20; B30; B40; B50; B60; B70; S0; I0];
 
