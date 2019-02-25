@@ -20,7 +20,7 @@ halfvec7 = zeros(ng,1);
 
 for j = 1:ng
     T = tempvec(j);
-    
+    %fprintf('Temp: %2.0f\n', j);
     global k tf A B w theta
     
     k = 1;
@@ -41,7 +41,7 @@ for j = 1:ng
     
     u0 = [B10; B20; B30; B40; B50; B60; B70];
 
-    [t, u] = ode45('multipopdeqns',[1 tf],u0);
+    [t, u] = ode45('onepopdeqns',[1 tf],u0);
     
     B1 = u(:,1);
     B2 = u(:,2);

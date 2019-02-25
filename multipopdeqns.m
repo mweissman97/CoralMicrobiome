@@ -1,7 +1,7 @@
 %diffyq for multibacterialpop
 
 function du = multipopdeqns(t,u)
-
+%fprintf('t: %2.0f\n', t);
 B1 = u(1);
 B2 = u(2);
 B3 = u(3);
