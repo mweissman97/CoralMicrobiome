@@ -1,25 +1,26 @@
-Tvec = [15:30];
-ng = length(Tvec);
-b1vec = zeros(ng,1);
-b2vec = zeros(ng,1);
-b3vec = zeros(ng,1);
-b4vec = zeros(ng,1);
-b5vec = zeros(ng,1);
-b6vec = zeros(ng,1);
-b7vec = zeros(ng,1);
+tempvec = [1:10];
+ng = length(tempvec);
+vec1 = zeros(ng,1);
+vec2 = zeros(ng,1);
+vec3 = zeros(ng,1);
+vec4 = zeros(ng,1);
+vec5 = zeros(ng,1);
+vec6 = zeros(ng,1);
+vec7 = zeros(ng,1);
 
 for j = 1:ng
-    T = Tvec(j);
     
+    T = tempvec(j);
+
     global k tf
     
     global A B w theta
     
     k = 100;
-    tf = 500;
+    tf = 365;
     
-    A = T-2.5; %minimum temp
-    B = 5; %max temp - minimum
+    A = 23; %minimum temp
+    B = T; %max temp - minimum
     w = (2*pi)/365; %makes periodic
     theta = -(pi/2+44*w); %shift
     
@@ -43,11 +44,17 @@ for j = 1:ng
     B6 = u(:,6);
     B7 = u(:,7);
     
-    b1vec(j) = B1(500);
-    b2vec(j) = B1(500);
-    b3vec(j) = B1(500);
-    b4vec(j) = B1(500);
-    b5vec(j) = B1(500);
-    b6vec(j) = B1(500);
-    b7vec(j) = B1(500);
+    vec1(j) = B1(end);
+    vec2(j) = B2(end);
+    vec3(j) = B3(end);
+    vec4(j) = B4(end);
+    vec5(j) = B5(end);
+    vec6(j) = B6(end);
+    vec7(j) = B7(end);
 end
+
+plot(tempvec, vec1, tempvec, vec2, tempvec, vec3, tempvec, vec4, tempvec, vec5, tempvec, vec6, tempvec, vec7);
+title('Fig. 4b: Temperature Amplitude and Composition')
+xlabel('Temperature Amplitude')
+ylabel('Proportion After 1 Year')
+legend('Actinobacteria','Alphaproteobacteria','Bacilli','Cyanobacteria','Gammaproteobacteria','Spirochaetia','Thaumarchaeota')

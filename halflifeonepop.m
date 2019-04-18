@@ -157,7 +157,7 @@ for j = 1:ng
     halfvec7(j) = val7;
 end
 
-plot(tempvec, halfvec1, tempvec, halfvec2, tempvec, halfvec3, tempvec, halfvec4, tempvec, halfvec5, tempvec, halfvec6, tempvec, halfvec7)
+plot(tempvec, smooth(halfvec1), tempvec, smooth(halfvec2), tempvec, smooth(halfvec3), tempvec, smooth(halfvec4), tempvec, smooth(halfvec5), tempvec, smooth(halfvec6), tempvec, smooth(halfvec7))
 legend('Actinobacteria','Alphaproteobacteria','Bacilli','Cyanobacteria','Gammaproteobacteria','Spirochaetia','Thaumarchaeota')
-xlabel('Mean Temperature')
+xlabel('Temperature Amplitude')
 ylabel('Days to Achieve 50% Carrying Capacity')
