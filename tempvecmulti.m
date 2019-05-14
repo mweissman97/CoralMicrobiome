@@ -1,4 +1,4 @@
-tempvec = [1:10];
+tempvec = [10:30];
 ng = length(tempvec);
 vec1 = zeros(ng,1);
 vec2 = zeros(ng,1);
@@ -19,8 +19,8 @@ for j = 1:ng
     k = 100;
     tf = 365;
     
-    A = 23; %minimum temp
-    B = T; %max temp - minimum
+    A = T-B/2; %minimum temp
+    B = 9; %max temp - minimum
     w = (2*pi)/365; %makes periodic
     theta = -(pi/2+44*w); %shift
     
