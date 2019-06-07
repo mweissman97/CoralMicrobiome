@@ -11,14 +11,14 @@ sig1 = 5;
 mu1 = 22;
 
 %alphaproteobacteria
-Rmax2 = 1.3;
+Rmax2 = 1.1;
 sig2 = 8;
 mu2 = 26;
 
 %bacili
-Rmax3 = 1;
-sig3 = 4;
-mu3 = 36;
+Rmax3 = 1.6;
+sig3 = 20;
+mu3 = 34;
 
 %betaproteo
 Rmax4 = 0.9;
@@ -43,7 +43,7 @@ mu7 = 35;
 % B8: flavobacteria
 Rmax8 = 0.5;
 sig8 = 5;
-mu8 = 22;
+mu8 = 26;
 
 % B9: gammaproteo
 Rmax9 = 0.5;
@@ -51,7 +51,7 @@ sig9 = 4;
 mu9 = 22;
 
 % B10: methanobacteria
-Rmax10 = 1;
+Rmax10 = 0.1;
 sig10 = 2;
 mu10 = 34;
 
@@ -76,8 +76,8 @@ sig14 = 5;
 mu14 = 25;
 
 % B15: thermoprotei
-Rmax15 = 3;
-sig15 = 15;
+Rmax15 = 2;
+sig15 = 10;
 mu15 = 42;
 
 % B16:Deltaproteobacteria

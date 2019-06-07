@@ -1,14 +1,16 @@
-%bio deqns solver
 global k A B w theta tf
 
 k = 100;
-tf = 10000;
+tf = 450;
 
-%avg
-A = 20; %minimum temp
-B = 6; %max temp - minimum
+%inner
+A = 24; %minimum temp
+B = 7; %max temp - minimum
+%B = 7;
 w = (2*pi)/365; %makes periodic
 theta = -(pi/2+44*w); %shift
+
+
 
 B01 = 0.1;
 B02 = 0.1;
@@ -52,10 +54,10 @@ B16 = u(:,16);
 B17 = u(:,17);
 
 %graph
-plot(t, B1, t, B2, t, B3, t, B4, t, B5, t, B6, t, B7, t, B16, t, B8, t, B9, t, B17, t, B10, t, B11, t, B12, t, B13, t, B14, t, B15)
-xlabel('Time (Days)')
-ylabel('Proportion of Microbiome')
-legend('Actinobacteria', 'Alphaproteobacteria', 'Bacili', 'Betaproteobacteria','Chlamydiia','Clostridia','Cyanobacteria', 'Deltaproteobacteria', 'Flavobacteria','Gammaproteobacteria','Halobacteria', 'Methanobacteria','Mollicutes','Planctomycetia','Spirochaetia','Thaumarchaeota','Thermoprotei')
+% plot(t, B1, t, B2, t, B3, t, B4, t, B5, t, B6, t, B7, t, B16, t, B8, t, B9, t, B17, t, B10, t, B11, t, B12, t, B13, t, B14, t, B15)
+% xlabel('Time')
+% ylabel('Proportion of Microbiome')
+% legend('Actinobacteria', 'Alphaproteobacteria', 'Bacili', 'Betaproteobacteria','Chlamydiia','Clostridia','Cyanobacteria', 'Deltaproteobacteria', 'Flavobacteria','Gammaproteobacteria','Halobacteria', 'Methanobacteria','Mollicutes','Planctomycetia','Spirochaetia','Thaumarchaeota','Thermoprotei')
 
 matb = [B1(tf);
 B2(tf);

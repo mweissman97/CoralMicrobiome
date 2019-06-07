@@ -1,6 +1,6 @@
 %bio temperature solver
 
-tempvec = [10:30];
+tempvec = [0:15];
 ng = length(tempvec);
 vec1 = zeros(ng,1);
 vec2 = zeros(ng,1);
@@ -17,6 +17,8 @@ vec12 = zeros(ng,1);
 vec13 = zeros(ng,1);
 vec14 = zeros(ng,1);
 vec15 = zeros(ng,1);
+vec16 = zeros(ng,1);
+vec17 = zeros(ng,1);
 
 
 for j = 1:ng
@@ -28,10 +30,10 @@ for j = 1:ng
     global A B w theta
     
     k = 100;
-    tf = 500;
+    tf = 1000;
     
-    A = T-B/2; %minimum temp
-    B = 11; %max temp - minimum
+    A = 20; %minimum temp
+    B = T; %max temp - minimum
     w = (2*pi)/365; %makes periodic
     theta = -(pi/2+44*w); %shift
     
@@ -50,9 +52,11 @@ for j = 1:ng
     B013 = 0.1;
     B014 = 0.1;
     B015 = 0.1;
+    B016 = 0.1;
+    B017 = 0.1;
     
     
-    u0 = [B01; B02; B03; B04; B05; B06; B07; B08; B09; B010; B011; B012; B013; B014; B015];
+    u0 = [B01; B02; B03; B04; B05; B06; B07; B08; B09; B010; B011; B012; B013; B014; B015; B016; B017];
     
     [t, u] = ode45('biodeqns',[1:1:tf],u0);
     
@@ -71,6 +75,8 @@ for j = 1:ng
     B13 = u(:,13);
     B14 = u(:,14);
     B15 = u(:,15);
+    B16 = u(:,16);
+    B17 = u(:,17);
     
     vec1(j) = B1(end);
     vec2(j) = B2(end);
@@ -79,23 +85,22 @@ for j = 1:ng
     vec5(j) = B5(end);
     vec6(j) = B6(end);
     vec7(j) = B7(end);
-    vec8(j) = B7(end);
-    vec9(j) = B7(end);
-    vec10(j) = B7(end);
-    vec11(j) = B7(end);
-    vec12(j) = B7(end);
-    vec13(j) = B7(end);
-    vec14(j) = B7(end);
-    vec15(j) = B7(end);
+    vec8(j) = B8(end);
+    vec9(j) = B9(end);
+    vec10(j) = B10(end);
+    vec11(j) = B11(end);
+    vec12(j) = B12(end);
+    vec13(j) = B13(end);
+    vec14(j) = B14(end);
+    vec15(j) = B15(end);
+    vec16(j) = B16 (end);
+    vec17(j) = B17(end);
 
 
 end
 
-plot(tempvec, vec2, tempvec, vec7)
-legend('Alphaproteo','Cyano')
-
-% plot(tempvec, vec1, tempvec, vec2, tempvec, vec3, tempvec, vec4, tempvec, vec5, tempvec, vec6, tempvec, vec7, tempvec, vec8, tempvec, vec9, tempvec, vec10, tempvec, vec11, tempvec, vec12, tempvec, vec13, tempvec, vec14, tempvec, vec15);
-% title('Fig. 4b: Temperature Amplitude and Composition')
-% xlabel('Temperature Amplitude')
-% ylabel('Proportion After 1 Year')
-% legend('Actinobacteria', 'Alphaproteobacteria', 'Bacili', 'Betaproteobacteria','Chlamydiia','Clostridia','Cyanobacteria','Flavobacteria','Gammaproteobacteria','Methanobacteria','Mollicutes','Planctomycetia','Spirochaetia','Thaumarchaeota','Thermoprotei')
+plot(tempvec, vec1, tempvec, vec2, tempvec, vec3, tempvec, vec4, tempvec, vec5, tempvec, vec6, tempvec, vec7, tempvec, vec16, tempvec, vec8, tempvec, vec9, tempvec, vec17, tempvec, vec10, tempvec, vec11, tempvec, vec12, tempvec, vec13, tempvec, vec14, tempvec, vec15);
+title('Temperature Amplitude and Composition')
+xlabel('Temperature Amplitude')
+ylabel('Proportion After 1000 Days')
+legend('Actinobacteria', 'Alphaproteobacteria', 'Bacili', 'Betaproteobacteria','Chlamydiia','Clostridia','Cyanobacteria','Deltaproteobacteria','Flavobacteria','Gammaproteobacteria','Halobacteria','Methanobacteria','Mollicutes','Planctomycetia','Spirochaetia','Thaumarchaeota','Thermoprotei')

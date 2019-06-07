@@ -6,52 +6,52 @@ global Rmax11 sig11 mu11 Rmax12 sig12 mu12 Rmax13 sig13 mu13 Rmax14 sig14 mu14
 global Rmax15 sig15 mu15 Rmax16 sig16 mu16 Rmax17 sig17 mu17
 
 %actinobacteria
-Rmax1 = 0.5;
-sig1 = 5;
-mu1 = 22;
+Rmax1 = 0.4;
+sig1 = 3;
+mu1 = 24;
 
 %alphaproteobacteria
-Rmax2 = 1.3;
+Rmax2 = 0.75;
 sig2 = 8;
-mu2 = 26;
+mu2 = 25;
 
 %bacili
 Rmax3 = 1;
-sig3 = 4;
-mu3 = 36;
+sig3 = 10;
+mu3 = 30;
 
 %betaproteo
-Rmax4 = 0.9;
+Rmax4 = 0.5;
 sig4 = 5;
-mu4 = 27;
+mu4 = 25;
 
 %chlamydiia
-Rmax5 = 1;
+Rmax5 = 0.8;
 sig5 = 5;
 mu5 = 30;
 
 %clostridia
 Rmax6 = 0.75;
-sig6 = 1;
-mu6 = 33;
+sig6 = 7;
+mu6 = 28;
 
 %cyanobacteria
-Rmax7 = 1.75;
+Rmax7 = 1.5;
 sig7 = 10;
 mu7 = 35;
 
 % B8: flavobacteria
 Rmax8 = 0.5;
 sig8 = 5;
-mu8 = 22;
+mu8 = 26;
 
 % B9: gammaproteo
-Rmax9 = 0.5;
+Rmax9 = 0.4;
 sig9 = 4;
-mu9 = 22;
+mu9 = 23;
 
 % B10: methanobacteria
-Rmax10 = 1;
+Rmax10 = 0.1;
 sig10 = 2;
 mu10 = 34;
 
@@ -61,23 +61,23 @@ sig11 = 15;
 mu11 = 34;
 
 % B12: planctomycetia
-Rmax12 = 0.7;
+Rmax12 = 0.5;
 sig12 = 8;
 mu12 = 27;
 
 % B13: spirochaetia
-Rmax13 = 0.75;
+Rmax13 = 0.5;
 sig13 = 5;
 mu13 = 25;
 
 % B14: thaumarchaeota
-Rmax14 = 0.8;
+Rmax14 = 0.5;
 sig14 = 5;
 mu14 = 25;
 
 % B15: thermoprotei
-Rmax15 = 3;
-sig15 = 15;
+Rmax15 = 2;
+sig15 = 10;
 mu15 = 42;
 
 % B16:Deltaproteobacteria

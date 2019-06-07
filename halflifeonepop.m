@@ -1,163 +1,105 @@
 %make for loop for each variable
 
-tempvec = [1:10];
-ng = length(tempvec);
-val1 = 0;
+avec = [5:35];
+ang = length(avec);
+bvec = [0:15];
+bng = length(bvec);
 val2 = 0;
-val3 = 0;
-val4 = 0;
-val5 = 0;
-val6 = 0;
 val7 = 0;
-halfvec1 = zeros(ng,1);
-halfvec2 = zeros(ng,1);
-halfvec3 = zeros(ng,1);
-halfvec4 = zeros(ng,1);
-halfvec5 = zeros(ng,1);
-halfvec6 = zeros(ng,1);
-halfvec7 = zeros(ng,1);
 
+halfmat2 = zeros(ang,bng);
+halfmat7 = zeros(ang,bng);
 
-for j = 1:ng
-    T = tempvec(j);
-    %fprintf('Temp: %2.0f\n', j);
+for j = 1:ang
+    a = avec(j);
     global k tf A B w theta
     
-    k = 1;
-    tf = 1000;
-    
-    A = 23;
-    B = T; %max temp - minimum
-    w = (2*pi)/365; %makes periodic
-    theta = -(pi/2+44*w); %shift
-    
-    B10 = 0.0001;%actinobacteria
-    B20 = 0.0001;%alphaproteobacteria
-    B30 = 0.0001;%bacili
-    B40 = 0.0001;%cyanobacteria
-    B50 = 0.0001;%gammaproteobacteria
-    B60 = 0.0001;%Spirochaetia
-    B70 = 0.0001;%Thaumarchaeota
-    
-    u0 = [B10; B20; B30; B40; B50; B60; B70];
-
-    [t, u] = ode45('onepopdeqns',[1 tf],u0);
-    
-    B1 = u(:,1);
-    B2 = u(:,2);
-    B3 = u(:,3);
-    B4 = u(:,4);
-    B5 = u(:,5);
-    B6 = u(:,6);
-    B7 = u(:,7);
-    
-    %pop1
-    matB1 = [B1 t];
-    [r1, c1] = size(matB1);
-    delta1 = 0;
-    for n1 = 1:r1
-        if n1 == 1
-            delta1 = abs(0.5-matB1(n1,1));
+    for i = 1:bng
+        b = bvec(i);
+        
+        A = a; %minimum temp
+        B = b; %max temp - minimum
+        w = (2*pi)/365; %makes periodic
+        theta = -(pi/2+44*w); %shift
+        
+        k = 1;
+        tf = 5000;
+        
+        B01 = 4.5;
+        B02 = 0.0001;
+        B03 = 12;
+        B04 = 3.7;
+        B05 = 2.9;
+        B06 = 5.8;
+        B07 = 0.0001;
+        B08 = 1.9;
+        B09 = 8.3;
+        B010 = 2.5;
+        B011 = 4.7;
+        B012 = 1.9;
+        B013 = 5.6;
+        B014 = 3.3;
+        B015 = 1.1;
+        B016 = 1.5;
+        B017 = 1.5;
+        
+        u0 = [B01; B02; B03; B04; B05; B06; B07; B08; B09; B010; B011; B012; B013; B014; B015; B016; B017];
+        
+        [t, u] = ode45('bioisolate',[1:1:tf],u0);
+        
+        B1 = u(:,1);
+        B2 = u(:,2);
+        B3 = u(:,3);
+        B4 = u(:,4);
+        B5 = u(:,5);
+        B6 = u(:,6);
+        B7 = u(:,7);
+        B8 = u(:,8);
+        B9 = u(:,9);
+        B10 = u(:,10);
+        B11 = u(:,11);
+        B12 = u(:,12);
+        B13 = u(:,13);
+        B14 = u(:,14);
+        B15 = u(:,15);
+        B16 = u(:,16);
+        B17 = u(:,17);
+        
+        %pop2
+        matB2 = [B2 t];
+        [r2, c2] = size(matB2);
+        delta2 = 0;
+        for n2 = 1:r2
+            if n2 == 1
+                delta2 = abs(0.5-matB2(n2,1));
+            end
+            if abs(0.5-matB2(n2,1)) < delta2
+                delta2 = abs(0.5-matB2(n2,1));
+                val2 = matB2(n2,2);
+            end
         end
-        if abs(0.5-matB1(n1,1)) < delta1
-            delta1 = abs(0.5-matB1(n1,1));
-            val1 = matB1(n1,2);
+        halfmat2(j,i) = val2;
+        
+        
+        %pop7
+        matB7 = [B7 t];
+        [r7, c7] = size(matB7);
+        delta7 = 0;
+        for n7 = 1:r7
+            if n7 == 1
+                delta7 = abs(0.5-matB7(n7,1));
+            end
+            if abs(0.5-matB7(n7,1)) < delta7
+                delta7 = abs(0.5-matB7(n7,1));
+                val7 = matB7(n7,2);
+            end
         end
+        halfmat7(j,i) = val7;
+        
     end
-    halfvec1(j) = val1;
-    
-    %pop2
-    matB2 = [B2 t]; 
-    [r2, c2] = size(matB2);
-    delta2 = 0; 
-    for n2 = 1:r2
-        if n2 == 1
-            delta2 = abs(0.5-matB2(n2,1));
-        end
-        if abs(0.5-matB2(n2,1)) < delta2
-            delta2 = abs(0.5-matB2(n2,1));
-            val2 = matB2(n2,2);
-        end
-    end
-    halfvec2(j) = val2;
-    
-    %pop3
-    matB3 = [B3 t];
-    [r3, c3] = size(matB3);
-    delta3 = 0;
-    for n3 = 1:r3
-        if n3 == 1
-            delta3 = abs(0.5-matB3(n3,1));
-        end
-        if abs(0.5-matB3(n3,1)) < delta3
-            delta3 = abs(0.5-matB3(n3,1));
-            val3 = matB3(n3,2);
-        end
-    end
-    halfvec3(j) = val3;
-    
-    %pop4
-    matB4 = [B4 t];
-    [r4, c4] = size(matB4);
-    delta4 = 0;
-    for n4 = 1:r4
-        if n4 == 1
-            delta4 = abs(0.5-matB4(n4,1));
-        end
-        if abs(0.5-matB4(n4,1)) < delta4
-            delta4 = abs(0.5-matB4(n4,1));
-            val4 = matB4(n4,2);
-        end
-    end
-    halfvec4(j) = val4;
-    
-    %pop5
-    matB5 = [B5 t];
-    [r5, c5] = size(matB5);
-    delta5 = 0;
-    for n5 = 1:r5
-        if n5 == 1
-            delta5 = abs(0.5-matB5(n5,1));
-        end
-        if abs(0.5-matB5(n5,1)) < delta5
-            delta5 = abs(0.5-matB5(n5,1));
-            val5 = matB5(n5,2);
-        end
-    end
-    halfvec5(j) = val5;
-    
-    %pop6
-    matB6 = [B6 t];
-    [r6, c6] = size(matB6);
-    delta6 = 0;
-    for n6 = 1:r6
-        if n6 == 1
-            delta6 = abs(0.5-matB6(n6,1));
-        end
-        if abs(0.5-matB6(n6,1)) < delta6
-            delta6 = abs(0.5-matB6(n6,1));
-            val6 = matB6(n6,2);
-        end
-    end
-    halfvec6(j) = val6;
-    
-    %pop7
-    matB7 = [B7 t];
-    [r7, c7] = size(matB7);
-    delta7 = 0;
-    for n7 = 1:r7
-        if n7 == 1
-            delta7 = abs(0.5-matB7(n7,1));
-        end
-        if abs(0.5-matB7(n7,1)) < delta7
-            delta7 = abs(0.5-matB7(n7,1));
-            val7 = matB7(n7,2);
-        end
-    end
-    halfvec7(j) = val7;
 end
-
-plot(tempvec, smooth(halfvec1), tempvec, smooth(halfvec2), tempvec, smooth(halfvec3), tempvec, smooth(halfvec4), tempvec, smooth(halfvec5), tempvec, smooth(halfvec6), tempvec, smooth(halfvec7))
-legend('Actinobacteria','Alphaproteobacteria','Bacilli','Cyanobacteria','Gammaproteobacteria','Spirochaetia','Thaumarchaeota')
-xlabel('Temperature Amplitude')
-ylabel('Days to Achieve 50% Carrying Capacity')
+        
+% plot(tempvec, halfvec1, tempvec, halfvec2, tempvec, halfvec3, tempvec, halfvec4, tempvec, halfvec5, tempvec, halfvec6, tempvec, halfvec7, tempvec, halfvec16, tempvec, halfvec8, tempvec, halfvec9, tempvec, halfvec17, tempvec, halfvec10, tempvec, halfvec11, tempvec, halfvec12, tempvec, halfvec13, tempvec, halfvec14, tempvec, halfvec15);
+% xlabel('Temperature Amplitude')
+% ylabel('Days to Achieve 50% Carrying Capacity')
+% legend('Actinobacteria', 'Alphaproteobacteria', 'Bacili', 'Betaproteobacteria','Chlamydiia','Clostridia','Cyanobacteria', 'Deltaproteobacteria', 'Flavobacteria','Gammaproteobacteria', 'Halobacteria', 'Methanobacteria','Mollicutes','Planctomycetia','Spirochaetia','Thaumarchaeota','Thermoprotei')
